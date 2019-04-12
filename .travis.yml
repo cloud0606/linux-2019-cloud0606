@@ -9,7 +9,6 @@ before_install:
     - tar --xz -xvf shellcheck-"${scversion}".linux.x86_64.tar.xz
     - sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
     - /usr/bin/shellcheck --version
-    - sudo apt install imagemagick-6.q16
     - sudo apt-get install p7zip
 
 script:
