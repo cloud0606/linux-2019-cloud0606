@@ -30,8 +30,10 @@ script:
   - bash t2.sh
   - bash t3.sh -h 
   - bash t3.sh -s
-  - bash t3.sh -s
-
+  - bash t3.sh -sp
+  - bash t3.sh -d
+  - bash t3.sh -c
+  - bash t3.sh -cu
   - bash t3.sh -u "/ksc.html"
 
 after_script:
