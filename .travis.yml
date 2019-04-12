@@ -29,7 +29,9 @@ script:
   - bash t2.sh -h 
   - bash t2.sh
   - bash t3.sh -h 
-  - bash t3.sh
+  - bash t3.sh -s
+  - bash t3.sh -s
+
   - bash t3.sh -u "/ksc.html"
 
 after_script:
