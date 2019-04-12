@@ -9,9 +9,28 @@ before_install:
     - tar --xz -xvf shellcheck-"${scversion}".linux.x86_64.tar.xz
     - sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
     - /usr/bin/shellcheck --version
+    - sudo apt install imagemagick-6.q16
+    - sudo apt-get install p7zip
 
 script:
   - bash test.sh
+  - cd lab4
+  - 7z x web_log.tsv.7z -y
+  - bash t1.sh -h
+  - bash t1.sh -qc 75% -i testImg/1.jpg
+  - bash t1.sh -rc 300x300 -i testImg/1.jpg
+  - bash t1.sh -w CUCCS -i testImg/1.jpg
+  - bash t1.sh -r testImg -p 2016-
+  - ls -l 
+  - bash t1.sh -r testImg -s -CUC
+  - ls -l
+  - bash t1.sh -i testImg/2.png -c 
+  - bash t1.sh -i testImg/3.svg -c 
+  - bash t2.sh -h 
+  - bash t2.sh
+  - bash t3.sh -h 
+  - bash t3.sh
+  - bash t3.sh -u "/ksc.html"
 
 after_script:
   - /usr/bin/shellcheck test.sh
