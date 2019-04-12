@@ -9,12 +9,12 @@ before_install:
     - tar --xz -xvf shellcheck-"${scversion}".linux.x86_64.tar.xz
     - sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
     - /usr/bin/shellcheck --version
-    - sudo apt-get install p7zip
+    - sudo apt-get install p7zip -y
 
 script:
   - bash test.sh
   - cd lab4
-  - 7z x web_log.tsv.7z -y
+  - 7z x web_log.tsv.7z
   - bash t1.sh -h
   - bash t1.sh -qc 75% -i testImg/1.jpg
   - bash t1.sh -rc 300x300 -i testImg/1.jpg
