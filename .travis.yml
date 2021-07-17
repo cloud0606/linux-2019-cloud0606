@@ -9,9 +9,32 @@ before_install:
     - tar --xz -xvf shellcheck-"${scversion}".linux.x86_64.tar.xz
     - sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
     - /usr/bin/shellcheck --version
+    - wget "https://media.githubusercontent.com/media/CUCCS/linux-2019-jckling/0x04/0x04/Codes/web_log.tsv"
+
 
 script:
   - bash test.sh
+  - mv web_log.tsv lab4/web_log.tsv
+  - cd lab4
+  - bash t1.sh -h
+  - bash t1.sh -qc 75% -i testImg/1.jpg
+  - bash t1.sh -rc 300x300 -i testImg/1.jpg
+  - bash t1.sh -w CUCCS -i testImg/1.jpg
+  - bash t1.sh -i testImg/2.png -c 
+  - bash t1.sh -i testImg/3.svg -c 
+  - bash t1.sh -r testImg -p 2016-
+  - ls -l testImg
+  - bash t1.sh -r testImg -s -CUC
+  - ls -l testImg
+  - bash t2.sh -h 
+  - bash t2.sh
+  - bash t3.sh -h 
+  - bash t3.sh -s
+  - bash t3.sh -sp
+  - bash t3.sh -d
+  - bash t3.sh -c
+  - bash t3.sh -cu
+  - bash t3.sh -u "/ksc.html"
 
 after_script:
   - /usr/bin/shellcheck test.sh
